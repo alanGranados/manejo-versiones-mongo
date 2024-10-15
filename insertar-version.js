@@ -14,8 +14,12 @@ async function main() {
 
     if(DevOrProd = 'PROD'){
         uri = process.env.MONGO_URI_PROD;
-    }else{
-        uri = process.env.MONGO_URI_DEV;
+    }
+    if(DevOrProd = 'DEV'){
+        uri = process.env.MONGO_URI_PROD;
+    }
+    else{
+        exit;
     }
     
     const client = new MongoClient(uri);
