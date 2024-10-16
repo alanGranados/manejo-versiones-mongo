@@ -12,14 +12,15 @@ async function main() {
     const args = process.argv.slice(2);
     const [DevOrProd,versionEmpresaMicrosip, anio, versionSiCSEsquema, versionPVDescEsquema, eliminado] = args;
 
-    if(DevOrProd = 'PROD'){
+    if(DevOrProd == 'PROD'){
         uri = process.env.MONGO_URI_PROD;
     }
-    if(DevOrProd = 'DEV'){
+    if(DevOrProd == 'DEV'){
         uri = process.env.MONGO_URI_PROD;
     }
     else{
-        exit;
+        console.log("Debes indicar si sera en PROD o DEV");
+        process.exit(1);
     }
     
     const client = new MongoClient(uri);
