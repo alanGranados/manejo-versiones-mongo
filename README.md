@@ -8,7 +8,7 @@ npm install -y
 </b>
 
 <b>
-node .\insertar-version.js PROD/DEV 1230,2024,"2.0.10","1.0.8",false
+node .\insertar-version.js "PROD"/"DEV" 1230 2024 "2.0.10" "1.0.8" false
 </b>
 
 los valores mostrados son de ejemplo solamente, dependera de la version que desees agregar

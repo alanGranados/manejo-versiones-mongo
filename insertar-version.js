@@ -5,18 +5,20 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 async function main() {
-    const uri = '';
+    let uri = '';
 
     //Obten parametros de la linea de comandos
     // Se obtienen desde el 3cer parametro ya que desde ahi se guardan los que mandamos nosotros
     const args = process.argv.slice(2);
-    const [DevOrProd,versionEmpresaMicrosip, anio, versionSiCSEsquema, versionPVDescEsquema, eliminado] = args;
+    console.log(args);
+    
+    const [DevOrProd, versionEmpresaMicrosip, anio, versionSiCSEsquema, versionPVDescEsquema, eliminado] = args;
 
     if(DevOrProd == 'PROD'){
         uri = process.env.MONGO_URI_PROD;
     }
     if(DevOrProd == 'DEV'){
-        uri = process.env.MONGO_URI_PROD;
+        uri = process.env.MONGO_URI_DEV;
     }
     else{
         console.log("Debes indicar si sera en PROD o DEV");
