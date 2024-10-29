@@ -14,13 +14,11 @@ async function main() {
     
     const [DevOrProd, versionEmpresaMicrosip, anio, versionSiCSEsquema, versionPVDescEsquema, eliminado] = args;
 
-    if(DevOrProd == 'PROD'){
+    if(DevOrProd === 'PROD'){
         uri = process.env.MONGO_URI_PROD;
-    }
-    if(DevOrProd == 'DEV'){
+    } else if(DevOrProd === 'DEV'){
         uri = process.env.MONGO_URI_DEV;
-    }
-    else{
+    } else{
         console.log("Debes indicar si sera en PROD o DEV");
         process.exit(1);
     }
@@ -42,6 +40,7 @@ async function main() {
             versionSiCSEsquema: versionSiCSEsquema,
             versionPVDescEsquema: versionPVDescEsquema,
             eliminado: eliminado,
+            version: 0,
             creadoEn: new Date(),
             modificadoEn: new Date(),
         };
